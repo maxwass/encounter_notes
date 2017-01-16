@@ -16,6 +16,7 @@ class Patient:
         self.first_name = ''
         self.last_name  = ''
         self.age        = 0
+        self.gender     = ''
 
     def _add_name(self):
          correct = False
@@ -56,7 +57,23 @@ class Patient:
                  self.age = age
             else:
                  clear_lines_above(4)
-                 #print('Redo Patient Name.')
+                 correct = False
+
+    def _add_gender(self):
+        correct = False
+        while (correct == False):
+            print('Patient Gender')
+            gender = raw_input("    Enter Patient Gender [M|F]: ")
+            print('Patient Gender: ' + gender)
+
+            correct = raw_input('Correct[y|n]?: ')
+            if (correct == 'y') | (correct == ''):
+                 correct = True
+                 clear_lines_above(4)
+                 print('Patient gender: ' + gender)
+                 self.gender = gender
+            else:
+                 clear_lines_above(4)
                  correct = False
 
 
@@ -65,6 +82,7 @@ class Patient:
 patient = Patient()
 patient._add_name()
 patient._add_age()
+patient._add_gender()
 
 #input patient age
 #Patient_Age = raw_input("Enter Patient Age: ")
